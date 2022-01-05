@@ -97,7 +97,6 @@ public class ProximityGeneration : MonoBehaviour
         for(int i = 0; i < 9; i++) {
             tilesToDelete[i].GetComponent<DecorPlacement>().DestroyDecor();
             Destroy(tilesToDelete[i]);
-
         }
     }
 }

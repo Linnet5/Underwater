@@ -16,28 +16,24 @@ public class MeshGenerator : MonoBehaviour
     [SerializeField] float noiseZoom;
     int xSize;
     int zSize;
+    float startX;
+    float startY;
 
     DecorPlacement decorPlacement;
 
     Vector3 worldPos;
 
-    // Start is called before the first frame update
-
-    void Start()
-    { 
+    void Awake() {
+        decorPlacement = gameObject.GetComponent<DecorPlacement>();
     }
-
     // Function from Brackeys
     void CreateShape() {
-        decorPlacement = gameObject.GetComponent<DecorPlacement>();
         vertices = new Vector3[(xSize + 1)*(zSize + 1)];
         newUV = new Vector2[vertices.Length];   // Added UV generation
-        float startX = 0.0f;          //Random.Range(256.0f, 256.0f*1000);   // Random mesh every time
-        float startY = 0.0f;      //Random.Range(256.0f, 256.0f*1000);
 
         for(int i = 0, z = 0; z <= zSize; z++) {
             for(int x = 0; x <= xSize; x++) {
-                float y = Mathf.PerlinNoise((worldPos.x +  x + startX) *  noiseZoom, (worldPos.z + z + startY)*  noiseZoom) * height;
+                float y = Mathf.PerlinNoise((worldPos.x +  x) *  noiseZoom, (worldPos.z + z)*  noiseZoom) * height;
                 vertices[i] = new Vector3(x, y, z);
                 decorPlacement.PlaceDecor(x, y, z, worldPos);
                 i++;
