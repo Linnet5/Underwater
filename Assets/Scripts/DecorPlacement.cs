@@ -11,7 +11,7 @@ public class DecorPlacement : MonoBehaviour
     private Vector3 playerPosition;
     private int refreshDistance;
 
-    const int MAXREFRESHDISTANCE = 50;
+    const int MAXREFRESHDISTANCE = 40;
 
     void Awake() {
         allObjects = new List<GameObject>();
@@ -24,12 +24,12 @@ public class DecorPlacement : MonoBehaviour
             refreshDistance = MAXREFRESHDISTANCE;
 
         if((y > -0.5f && y < 0.1f) || (y > 0.15 && y < 0.18) || (y > 0.20 && y < 0.22) || (y > 0.25 && y < 0.30)  || (y > 0.45 && y < 0.55)) {
-                //Only generate Decor outside the radius
-                if(Mathf.Sqrt(Mathf.Pow(worldPos.x + x - playerPosition.x, 2) + Mathf.Pow(worldPos.z + z - playerPosition.z, 2)) > refreshDistance) {
-                    currentObject = GameObject.Instantiate(Decor[0]); //Grass
-                    currentObject.transform.position = new Vector3(worldPos.x + x, y + offsetY, worldPos.z + z);
-                    allObjects.Add(currentObject);
-                }
+            //Only generate Decor outside the radius
+            if(Mathf.Sqrt(Mathf.Pow(worldPos.x + x - playerPosition.x, 2) + Mathf.Pow(worldPos.z + z - playerPosition.z, 2)) > refreshDistance) {
+                currentObject = GameObject.Instantiate(Decor[0]); //Grass
+                currentObject.transform.position = new Vector3(worldPos.x + x, y + offsetY, worldPos.z + z);
+                allObjects.Add(currentObject);
+            }
         }
 
         if((y > 0.5 && y < 0.75) || (y > 0.77)) {
@@ -60,17 +60,15 @@ public class DecorPlacement : MonoBehaviour
         }
     }
 
-    public void DestroyDecor() {
+    public void DestroyDecor(Vector3 playerPosition) {
         // Decor is only destroyed if it's a certain distance away from the player. Respawning of objects in close proximity looks bad.
         // Decor can also be destroyed if the ground is not detected above or below the object root. (To collect garbage that may not have been despawned)
         refreshDistance = MAXREFRESHDISTANCE;
-
-        playerPosition = GameObject.FindGameObjectWithTag("Player").GetComponent<Transform>().position;
         foreach(GameObject element in allObjects) {
-            if(Mathf.Sqrt(Mathf.Pow(element.transform.position.x - playerPosition.x, 2) + Mathf.Pow(element.transform.position.z - playerPosition.z, 2)) > refreshDistance) {
+            if(Mathf.Sqrt(Mathf.Pow(playerPosition.x - element.transform.position.x, 2) + Mathf.Pow(playerPosition.z - element.transform.position.z, 2)) > refreshDistance) {
                 Destroy(element);
             }
         }
-        allObjects.Clear();
+        allObjects.RemoveAll(element => element == null); 
     }
 }

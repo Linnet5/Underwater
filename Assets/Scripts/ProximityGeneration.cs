@@ -19,7 +19,7 @@ public class ProximityGeneration : MonoBehaviour
         tiles = Generate(player.transform.position, true);
     }
 
-    void FixedUpdate()
+    void Update()
     {
         // Check forward, backward, left and right of the player. If no ground exists there, then generate new ground and delete previous ground.
         if(!Physics.CheckSphere(new Vector3(player.transform.position.x, 0, player.transform.position.z) + player.transform.forward*distance , 10.0f)) {
@@ -53,6 +53,8 @@ public class ProximityGeneration : MonoBehaviour
         // Generates the tile under player and all adjacent tiles.
         for(int i = 0; i < 9; i++) {
             tiles[i] = GameObject.Instantiate(groundTile);
+            tiles[i].tag = "Ground";
+
             Vector3 tilesPos = new Vector3(playerPosition.x -distance/2.0f, 0, playerPosition.z -distance/2.0f);
             
             switch(i){
@@ -94,8 +96,9 @@ public class ProximityGeneration : MonoBehaviour
     }
 
     void Ungenerate(GameObject[] tilesToDelete) {
+        Vector3 playerPosition = player.transform.position;
         for(int i = 0; i < 9; i++) {
-            tilesToDelete[i].GetComponent<DecorPlacement>().DestroyDecor();
+            tilesToDelete[i].GetComponent<DecorPlacement>().DestroyDecor(playerPosition);
             Destroy(tilesToDelete[i]);
         }
     }
