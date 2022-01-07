@@ -1405,7 +1405,7 @@
     "m_Hidden": false,
     "m_ShaderOutputName": "Alpha",
     "m_StageCapability": 2,
-    "m_Value": 1.0,
+    "m_Value": 0.8500000238418579,
     "m_DefaultValue": 1.0,
     "m_Labels": []
 }
@@ -1874,8 +1874,8 @@
     "m_Type": "UnityEditor.Rendering.HighDefinition.ShaderGraph.SystemData",
     "m_ObjectId": "5ecd8d3c58fa4b13a3e61d0e79ccac46",
     "m_MaterialNeedsUpdateHash": 529,
-    "m_SurfaceType": 0,
-    "m_RenderingPass": 1,
+    "m_SurfaceType": 1,
+    "m_RenderingPass": 4,
     "m_BlendMode": 0,
     "m_ZTest": 4,
     "m_ZWrite": false,

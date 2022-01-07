@@ -127,10 +127,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Decor:
   - {fileID: 4791761265544938643, guid: 2007cfd487dd6df4d9ce313acdef00b4, type: 3}
-  - {fileID: 583152664008483647, guid: 48b7096f7952c944d8ed68868660b8ad, type: 3}
-  - {fileID: 4251435140245615968, guid: 6dbd558f69a15a741a805f187c9ae489, type: 3}
-  - {fileID: 3739914991773288860, guid: 2be2b5795566d6341801cb5aad5a4888, type: 3}
-  - {fileID: 5352853543065423545, guid: c9d18b30e737f6a49b763e5619dcb8a7, type: 3}
+  - {fileID: 1442877580265357694, guid: 5f661b3ec5f88c44fada88e81a71e5c4, type: 3}
+  - {fileID: 1551983158705587950, guid: 4003e6272c2b16d4dad8df670c2e9e89, type: 3}
   - {fileID: 324621024515172941, guid: 7ff8e5401cb8b2745a833f72b3464179, type: 3}
   - {fileID: 5502378905369849654, guid: 980647bcf4e5ee94c9cb6d84047cb672, type: 3}
   offsetY: 0.5

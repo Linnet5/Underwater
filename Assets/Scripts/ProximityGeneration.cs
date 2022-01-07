@@ -16,7 +16,7 @@ public class ProximityGeneration : MonoBehaviour
         player = GameObject.FindGameObjectWithTag("Player");
         distance = groundTile.GetComponent<MeshGenerator>().resolution;
 
-        tiles = Generate(player.transform.position);
+        tiles = Generate(player.transform.position, true);
     }
 
     void FixedUpdate()
@@ -24,19 +24,19 @@ public class ProximityGeneration : MonoBehaviour
         // Check forward, backward, left and right of the player. If no ground exists there, then generate new ground and delete previous ground.
         if(!Physics.CheckSphere(new Vector3(player.transform.position.x, 0, player.transform.position.z) + player.transform.forward*distance , 10.0f)) {
             Ungenerate(tiles);
-            tiles = Generate(player.transform.position);
+            tiles = Generate(player.transform.position, false);
         }
         else if(!Physics.CheckSphere(new Vector3(player.transform.position.x, 0, player.transform.position.z) - player.transform.forward*distance , 10.0f)) {
             Ungenerate(tiles);
-            tiles = Generate(player.transform.position);
+            tiles = Generate(player.transform.position, false);
         }
         else if(!Physics.CheckSphere(new Vector3(player.transform.position.x, 0, player.transform.position.z) - player.transform.right*distance , 10.0f)) {
             Ungenerate(tiles);
-            tiles = Generate(player.transform.position);
+            tiles = Generate(player.transform.position, false);
         }
         else if(!Physics.CheckSphere(new Vector3(player.transform.position.x, 0, player.transform.position.z) + player.transform.right*distance , 10.0f)) {
             Ungenerate(tiles);
-            tiles = Generate(player.transform.position);
+            tiles = Generate(player.transform.position, false);
         }
     }
 
@@ -49,7 +49,7 @@ public class ProximityGeneration : MonoBehaviour
         }
     }
 
-    GameObject[] Generate(Vector3 playerPosition) {
+    GameObject[] Generate(Vector3 playerPosition, bool firstTime) {
         // Generates the tile under player and all adjacent tiles.
         for(int i = 0; i < 9; i++) {
             tiles[i] = GameObject.Instantiate(groundTile);
@@ -88,7 +88,7 @@ public class ProximityGeneration : MonoBehaviour
                 break;
             }
 
-            tiles[i].GetComponent<MeshGenerator>().Generate();
+            tiles[i].GetComponent<MeshGenerator>().Generate(firstTime);
         }
         return(tiles);
     }
