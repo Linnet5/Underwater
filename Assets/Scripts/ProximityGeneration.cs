@@ -90,15 +90,13 @@ public class ProximityGeneration : MonoBehaviour
                 break;
             }
 
-            tiles[i].GetComponent<MeshGenerator>().Generate(firstTime);
+            tiles[i].GetComponent<MeshGenerator>().Generate(firstTime, tiles[i]);
         }
         return(tiles);
     }
 
     void Ungenerate(GameObject[] tilesToDelete) {
-        Vector3 playerPosition = player.transform.position;
         for(int i = 0; i < 9; i++) {
-            tilesToDelete[i].GetComponent<DecorPlacement>().DestroyDecor(playerPosition);
             Destroy(tilesToDelete[i]);
         }
     }

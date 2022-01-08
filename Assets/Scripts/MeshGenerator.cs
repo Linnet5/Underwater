@@ -27,7 +27,7 @@ public class MeshGenerator : MonoBehaviour
         decorPlacement = gameObject.GetComponent<DecorPlacement>();
     }
     // Function from Brackeys
-    void CreateShape(bool firstTime) {
+    void CreateShape(bool firstTime, GameObject tile) {
         vertices = new Vector3[(xSize + 1)*(zSize + 1)];
         newUV = new Vector2[vertices.Length];   // Added UV generation
 
@@ -35,7 +35,7 @@ public class MeshGenerator : MonoBehaviour
             for(int x = 0; x <= xSize; x++) {
                 float y = Mathf.PerlinNoise((worldPos.x +  x) *  noiseZoom, (worldPos.z + z)*  noiseZoom) * height;
                 vertices[i] = new Vector3(x, y, z);
-                decorPlacement.PlaceDecor(x, y, z, worldPos, firstTime);
+                decorPlacement.PlaceDecor(x, y, z, worldPos, firstTime, tile);
                 i++;
             }
         }
@@ -78,13 +78,13 @@ public class MeshGenerator : MonoBehaviour
         mesh.RecalculateNormals();
     }
 
-    public void Generate(bool firstTime) {
+    public void Generate(bool firstTime, GameObject tile) {
         worldPos = gameObject.transform.position;
         mesh = new Mesh();
 
         xSize = zSize = resolution;
 
-        CreateShape(firstTime);
+        CreateShape(firstTime, tile);
         CreateUV();
         UpdateMesh();
 

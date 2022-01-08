@@ -4,23 +4,19 @@ using UnityEngine;
 
 public class Despawn : MonoBehaviour
 {
+    private GameObject player;
     GameObject[] ground;
+
+    float refreshSize;
 
     //Script checks deletion condition every 5 seconds.
     void Start() {
-        InvokeRepeating("Delete", 5.0f, 5.0f);
+        refreshSize = 150.0f;
+        player = GameObject.FindGameObjectWithTag("Player");
     }
-    void Delete() {
-        ground = GameObject.FindGameObjectsWithTag("Ground");
-        float shortestDistance = 9999.0f;
-        foreach(GameObject tile in ground) {
-            float distance = (tile.transform.position - gameObject.transform.position).magnitude;
-            if(distance < shortestDistance)
-                shortestDistance = distance;
-        }
-
-        if(shortestDistance > 50) {
+    public void FixedUpdate() {
+        if(Mathf.Abs(player.transform.position.x - gameObject.transform.position.x) > refreshSize || Mathf.Abs(player.transform.position.z - gameObject.transform.position.z) > refreshSize) {
             Destroy(gameObject);
         }
-    }
+    } 
 }
