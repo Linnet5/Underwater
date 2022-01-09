@@ -5,9 +5,10 @@ using UnityEngine;
 public class ProximityGeneration : MonoBehaviour
 {
     [SerializeField] private GameObject groundTile;
+    [SerializeField] private GameObject fishes;
     private GameObject[] tiles;
     private GameObject player;
-    // Start is called before the first frame update
+
 
     private int distance;
     void Start()
@@ -60,30 +61,39 @@ public class ProximityGeneration : MonoBehaviour
             switch(i){
                 case 0:
                     tiles[i].transform.position = tilesPos;
+                    SpawnFish(tiles[i], playerPosition);
                 break;
                 case 1:
                     tiles[i].transform.position = tilesPos + (new Vector3(distance, 0 , 0));
+                    SpawnFish(tiles[i], playerPosition);
                 break;
                 case 2:
                     tiles[i].transform.position = tilesPos + (new Vector3(distance, 0 , distance));
+                    SpawnFish(tiles[i], playerPosition);
                 break;
                 case 3:
                     tiles[i].transform.position = tilesPos + (new Vector3(0, 0 , distance));
+                    SpawnFish(tiles[i], playerPosition);
                 break;
                 case 4:
                     tiles[i].transform.position = tilesPos + (new Vector3(-distance, 0 , distance));
+                    SpawnFish(tiles[i], playerPosition);
                 break;
                 case 5:
                     tiles[i].transform.position = tilesPos + (new Vector3(-distance, 0 , 0));
+                    SpawnFish(tiles[i], playerPosition);
                 break;
                 case 6:
                     tiles[i].transform.position = tilesPos + (new Vector3(-distance, 0 , -distance));
+                    SpawnFish(tiles[i], playerPosition);
                 break;
                 case 7:
                     tiles[i].transform.position = tilesPos + (new Vector3(0, 0 , -distance));
+                    SpawnFish(tiles[i], playerPosition);
                 break;
                 case 8:
                     tiles[i].transform.position = tilesPos + (new Vector3(distance, 0 , -distance));
+                    SpawnFish(tiles[i], playerPosition);
                 break;
 
                 default:
@@ -93,6 +103,16 @@ public class ProximityGeneration : MonoBehaviour
             tiles[i].GetComponent<MeshGenerator>().Generate(firstTime, tiles[i]);
         }
         return(tiles);
+    }
+
+    void SpawnFish(GameObject inTile, Vector3 playerPosition) {
+        GameObject school = GameObject.Instantiate(fishes);
+        if (school.GetComponent<Renderer>().isVisible) {
+            Destroy(school);
+            return;
+        }
+        school.transform.position = inTile.transform.position + new Vector3(0.0f, 10.0f, 0.0f);
+        school.transform.LookAt(playerPosition);
     }
 
     void Ungenerate(GameObject[] tilesToDelete) {
