@@ -96,7 +96,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 04c0417a7ae3f5b45b1f29f5e4c17125, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  resolution: 100
+  resolution: 80
   height: 2
   noiseZoom: 0.07
 --- !u!64 &6946385846146915383

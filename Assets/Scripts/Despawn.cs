@@ -9,9 +9,8 @@ public class Despawn : MonoBehaviour
 
     float refreshSize;
 
-    //Script checks deletion condition every 5 seconds.
     void Start() {
-        refreshSize = 150.0f;
+        refreshSize = 125.0f;
         player = GameObject.FindGameObjectWithTag("Player");
     }
     public void FixedUpdate() {
