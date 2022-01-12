@@ -111,7 +111,7 @@ public class ProximityGeneration : MonoBehaviour
             Destroy(school);
             return;
         }
-        school.transform.position = inTile.transform.position + new Vector3(0.0f, 10.0f, 0.0f);
+        school.transform.position = inTile.transform.position + new Vector3(0.0f, 7.0f, 0.0f);
         school.transform.LookAt(playerPosition);
     }
 

@@ -54,6 +54,10 @@ public class FishBehavior : MonoBehaviour
             timer = 0;
             transform.Rotate(new Vector3(-35f,0.0f, 0.0f), Space.Self);
         }
+        else if(other.tag == "Surface") {
+            timer = 0;
+            transform.Rotate(new Vector3(35f,0.0f, 0.0f), Space.Self);
+        }
     }
 
     IEnumerator ResetSpeed() {
