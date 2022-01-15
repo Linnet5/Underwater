@@ -10,23 +10,18 @@ public class MeshGenerator : MonoBehaviour
     Vector2[] newUV;
     Vector3[] vertices;
     int[] triangles;
-
     public int resolution;
     [SerializeField] float height;
     [SerializeField] float noiseZoom;
     int xSize;
     int zSize;
-    float startX;
-    float startY;
-
     DecorPlacement decorPlacement;
-
     Vector3 worldPos;
 
+    // Functions CreateShape() & UpdateMesh() based on Brackeys tutorial https://www.youtube.com/watch?v=64NblGkAabk 
     void Awake() {
         decorPlacement = gameObject.GetComponent<DecorPlacement>();
     }
-    // Function from Brackeys
     void CreateShape(bool firstTime, GameObject tile) {
         vertices = new Vector3[(xSize + 1)*(zSize + 1)];
         newUV = new Vector2[vertices.Length];   // Added UV generation
@@ -67,7 +62,6 @@ public class MeshGenerator : MonoBehaviour
         }
     }
     
-    // Function from Brackeys
     void UpdateMesh() {
         mesh.Clear();
 

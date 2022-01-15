@@ -91,7 +91,11 @@
         }
     ],
     "m_GroupDatas": [],
-    "m_StickyNoteDatas": [],
+    "m_StickyNoteDatas": [
+        {
+            "m_Id": "6923a4f2995b441aa75de7e8589eecd6"
+        }
+    ],
     "m_Edges": [
         {
             "m_OutputSlot": {
@@ -1704,6 +1708,26 @@
 
 {
     "m_SGVersion": 0,
+    "m_Type": "UnityEditor.ShaderGraph.StickyNoteData",
+    "m_ObjectId": "6923a4f2995b441aa75de7e8589eecd6",
+    "m_Title": "Vertex Shader inspired by  DitzelGames",
+    "m_Content": "https://youtu.be/iUCGYBVX2wA",
+    "m_TextSize": 1,
+    "m_Theme": 0,
+    "m_Position": {
+        "serializedVersion": "2",
+        "x": -834.0,
+        "y": 692.0,
+        "width": 543.0,
+        "height": 144.0
+    },
+    "m_Group": {
+        "m_Id": ""
+    }
+}
+
+{
+    "m_SGVersion": 0,
     "m_Type": "UnityEditor.ShaderGraph.BlockNode",
     "m_ObjectId": "6a0a4f120d3c4edd82c8500f6829777f",
     "m_Group": {
@@ -1792,7 +1816,7 @@
     ],
     "synonyms": [],
     "m_Precision": 0,
-    "m_PreviewExpanded": false,
+    "m_PreviewExpanded": true,
     "m_CustomColors": {
         "m_SerializableColors": []
     }
@@ -2023,8 +2047,8 @@
         "m_Expanded": true,
         "m_Position": {
             "serializedVersion": "2",
-            "x": -759.9999389648438,
-            "y": 874.0000610351563,
+            "x": -617.0,
+            "y": 874.0,
             "width": 126.0,
             "height": 118.0
         }
@@ -2447,7 +2471,7 @@
         "m_Expanded": true,
         "m_Position": {
             "serializedVersion": "2",
-            "x": -327.0000305175781,
+            "x": -327.0,
             "y": 874.0,
             "width": 208.0,
             "height": 278.0
@@ -2496,8 +2520,8 @@
         "m_Expanded": true,
         "m_Position": {
             "serializedVersion": "2",
-            "x": -894.0,
-            "y": 874.0000610351563,
+            "x": -751.0,
+            "y": 874.0,
             "width": 126.0,
             "height": 173.0
         }

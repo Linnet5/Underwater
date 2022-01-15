@@ -14,7 +14,7 @@ public class DecorPlacement : MonoBehaviour
 
     public void PlaceDecor(int x, float y, int z, Vector3 worldPos, bool firstTime, GameObject tile) {
         playerPosition = GameObject.FindGameObjectWithTag("Player").GetComponent<Transform>().position;
-
+        
         //  We don't want to spawn decor in close proximity when refreshing terrain. Only do this for startup.
         if(firstTime)
             refreshDistance = 0;
