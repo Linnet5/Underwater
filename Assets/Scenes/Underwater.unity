@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 1203.0848, g: 2503.0273, b: 2858.7266, a: 1}
+  m_IndirectSpecularColor: {r: 1007.04364, g: 2272.8665, b: 2632.642, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -578,12 +578,12 @@ GameObject:
   - component: {fileID: 132924130}
   - component: {fileID: 132924131}
   m_Layer: 0
-  m_Name: Camera Origin
+  m_Name: Rotating Camera View
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &132924130
 Transform:
   m_ObjectHideFlags: 0
@@ -1083,7 +1083,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 1264833946912854, guid: 2e62f5703e5f8d2488a5e1bc8433be41, type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 1264833946912854, guid: 2e62f5703e5f8d2488a5e1bc8433be41, type: 3}
       propertyPath: m_TagString
