@@ -30,7 +30,7 @@ public class MeshGenerator : MonoBehaviour
             for(int x = 0; x <= xSize; x++) {
                 float y = Mathf.PerlinNoise((worldPos.x +  x) *  noiseZoom, (worldPos.z + z)*  noiseZoom) * height;
                 vertices[i] = new Vector3(x, y, z);
-                decorPlacement.PlaceDecor(x, y, z, worldPos, firstTime, tile);
+                decorPlacement.PlaceDecor(x, y, z, worldPos, firstTime);
                 i++;
             }
         }
